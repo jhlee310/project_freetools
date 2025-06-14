@@ -1,27 +1,42 @@
 // components/navbar.tsx
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   return (
-    <nav className="bg-white/70 backdrop-blur-md shadow-sm">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <h1 className="text-2xl font-bold text-pastelBlue">JeonseFlow</h1>
-        <div className="flex items-center space-x-4 text-pastelBlue">
-          {["홈", "기능", "플로우", "문의"].map((t) => (
-            <Link
-              key={t}
-              href={`#${t === "홈" ? "hero" : t === "기능" ? "features" : t === "플로우" ? "flow" : "contact"}`}
-              className="hover:underline"
-            >
-              {t}
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md"
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white">
+            YourBrand
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="#features" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+              Features
             </Link>
-          ))}
-          <ThemeToggle />
+            <Link href="#pricing" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+              Pricing
+            </Link>
+            <Link href="#about" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+              About
+            </Link>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost">Sign In</Button>
+            <Button>Get Started</Button>
+          </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
