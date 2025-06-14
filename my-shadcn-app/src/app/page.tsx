@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { ToggleBlock } from "@/components/toggle-block";
 import { FlowTimeline } from "@/components/flow-timeline";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
@@ -19,7 +20,12 @@ export default function HomePage() {
         {/* 배경 패턴 */}
         <div className="absolute inset-0 bg-pastelPink mix-blend-multiply opacity-20 rounded-3xl animate-pulse"></div>
 
-        <div className="relative z-10 max-w-xl bg-white p-8 rounded-xl shadow-lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 max-w-xl bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
+        >
           <h2 className="text-3xl font-bold mb-4 text-pastelBlue">
             전세 거래, 완전 새로워진 경험
           </h2>
@@ -31,7 +37,7 @@ export default function HomePage() {
             <Button>무료 체험</Button>
             <Button variant="outline">문의하기</Button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Features */}
