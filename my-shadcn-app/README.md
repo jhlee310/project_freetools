@@ -20,6 +20,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+### UI Highlights
+
+- Redesigned hero section with a subtle gradient background
+- Feature cards provide a quick overview of key functions
+- Navigation bar includes a dark mode toggle
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
